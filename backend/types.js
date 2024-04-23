@@ -9,7 +9,7 @@ const updateTodo = z.object({
     id: z.string(),
 })
 
-module.exports={
+module.exports = {
     createTodo,
     updateTodo
 }
