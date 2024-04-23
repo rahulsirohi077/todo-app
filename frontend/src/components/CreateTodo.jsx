@@ -34,7 +34,10 @@ export function CreateTodo() {
                     body: JSON.stringify({
                         title: title,
                         description: description
-                    })
+                    }),
+                    headers: {
+                        "Content-type": "application/json"
+                    }
                 },
             )
                 .then(
