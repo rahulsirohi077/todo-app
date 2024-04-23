@@ -1,10 +1,11 @@
+import { todo } from './db';
 import { createTodo,updateTodo } from './types';
 const express = require('express');
 const app = express();
 
 app.use(express.json());
 
-app.post('/todo', (req, res) => {
+app.post('/todo', async (req, res) => {
     const createPayLoad = req.body;
     const parsePayLoad = createTodo.safeParse(createPayLoad);
     if(!parsePayLoad.success){
@@ -14,7 +15,13 @@ app.post('/todo', (req, res) => {
         return
     }
     // put data in mongoDB
-    
+    await todo.create({
+        title: createPayLoad.title,
+        description: createPayLoad.description,
+    });
+    res.json({
+        msg: "Todo Created"
+    });
 });
 
 app.get('/todos', (req, res) => {
