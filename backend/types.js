@@ -1,8 +1,8 @@
 const z = require('zod');
 
 const todoSchema = z.object({
-    title: z.string().nonempty(),
-    description: z.string().nonempty()
+    title: z.string(),
+    description: z.string()
 });
 
 const updateTodo = z.object({
