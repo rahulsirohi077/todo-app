@@ -28,14 +28,14 @@ export function CreateTodo() {
                 margin: 10
             }
         } onClick={() => {
-            fetch("http://localhost:3000/todos",
+            fetch("http://localhost:3000/todo",
                 {
                     method: "POST",
                     body: JSON.stringify({
                         title: title,
                         description: description
                     })
-                }
+                },
             )
                 .then(
                     async function (res) {

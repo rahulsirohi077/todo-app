@@ -1,11 +1,15 @@
-import { todo } from './db.js';
-import { createTodo,updateTodo } from './types';
+const {todo} = require('./db');
+const {createTodo,updateTodo} = require('./types');
 const express = require('express');
 const cors = require('cors');
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+app.get('/hi',function(req,res){
+    res.send("Hello world!");
+});
 
 app.post('/todo', async (req, res) => {
     const createPayLoad = req.body;
